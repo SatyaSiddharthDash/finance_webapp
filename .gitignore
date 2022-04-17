@@ -1,0 +1,6 @@
+/venv
+/.idea
+db.sqlite3
+/finance_webapp/__pycache__
+/__pycache__
+Notes.txt
