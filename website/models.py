@@ -5,6 +5,7 @@ class MyApp(models.Model):
     name = models.CharField(max_length=128, null=False, unique=True)
     description = models.TextField(default='', blank=True)
     image = models.ImageField(upload_to='my_apps')
+    url = models.CharField(max_length=20)
     created_at = models.DateTimeField(auto_now_add=True)
     created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='my_apps')
 
