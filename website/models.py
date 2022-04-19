@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class MyApp(models.Model):
     name = models.CharField(max_length=128, null=False, unique=True)
     description = models.TextField(default='', blank=True)
