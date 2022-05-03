@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <!-- Upload file section -->
-    <section class="page-section mt-5" id="contact">
+    <!-- Upload File Section-->
+    <section class="page-section mt-5" id="import-form">
         <div class="container">
-            <!-- Contact Section Heading-->
+            <!-- Heading-->
             <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Upload File</h2>
             <!-- Icon Divider-->
             <div class="divider-custom">
@@ -12,48 +12,35 @@
                 <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                 <div class="divider-custom-line"></div>
             </div>
-            <!-- Upload file Section Form-->
-            <div class="row justify-content-center">
-                <div class="col-lg-8 col-xl-7">
-                    <!-- * * * * * * * * * * * * * * *-->
-                    <!-- * * SB Forms Contact Form * *-->
-                    <!-- * * * * * * * * * * * * * * *-->
-                    <!-- This form is pre-integrated with SB Forms.-->
-                    <!-- To make this form functional, sign up at-->
-                    <!-- https://startbootstrap.com/solution/contact-forms-->
-                    <!-- to get an API token!-->
+            <!-- Upload File Section Form-->
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+
                     <form id="upload-file" name="upload-file" enctype="multipart/form-data" method="POST"
                           action="{% url 'airpollution:upload_file' %}">
                         {% csrf_token %}
-                        <!-- Year input-->
-                        <div class="form-floating mb-3">
-                            <input class="form-control" id="year" name="year" type="text" placeholder="Year"
-                                   required="required" data-validation-required-message=""/>
-                            <label>Year</label>
-                        </div>
-                        <!-- Email address input-->
-                        <div class="form-floating mb-3">
-                            <input class="form-control" id="file" name="file" type="file" placeholder="File to upload"/>
-                            <label>File</label>
-                        </div>
-                        <!-- Submit success message-->
-                        <!---->
-                        <!-- This is what your users will see when the form-->
-                        <!-- has successfully submitted-->
-                        <div class="d-none" id="submitSuccessMessage">
-                            <div class="text-center mb-3">
-                                <div class="fw-bolder">Form submission successful!</div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>Year</label>
+                                <input class="form-control" id="year" name="year" type="number" placeholder="Year"
+                                       required="required" data-validation-required-message=""/>
+                                <p class="help-block text-danger"></p>
                             </div>
                         </div>
-                        <!-- Submit error message-->
-                        <!---->
-                        <!-- This is what your users will see when there is-->
-                        <!-- an error submitting the form-->
-                        <div class="d-none" id="submitErrorMessage">
-                            <div class="text-center text-danger mb-3">{{ message_success }}</div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>File</label>
+                                <input class="form-control" id="file" name="file" type="file" required="required"
+                                       data-validation-required-message=""/>
+                                <p class="help-block text-danger"></p>
+                            </div>
                         </div>
-                        <!-- Submit Button-->
-                        <button class="btn btn-primary btn-xl enabled" id="submitButton" type="submit">Upload</button>
+                        <br/>
+
+                        <div id="success">{{ message_success }}</div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-xl" id="upload" type="submit">Upload</button>
+                        </div>
                     </form>
                 </div>
             </div>
